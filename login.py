@@ -2,14 +2,14 @@ import os
 from getpass import getpass
 import crypt
 
-SHADOW_LOC = '/etc/shadow'
+SHADOW_LOC = '/etc/shadow' # Specify Shadow file location
 
 
 def main():
     if os.access(SHADOW_LOC, os.F_OK):  # Make sure Shadow file exists.
         attempt = 0
-        while attempt < 3:
-            shadowRead = open(SHADOW_LOC, mode='r')
+        while attempt < 3: # User has 3 attempts to guess the credentials
+            shadowRead = open(SHADOW_LOC, mode='r')  # Read from Shadow file
             user = input("Specify User Account: ")
             password = getpass("Type your password: ")
             userFound = False
@@ -19,13 +19,13 @@ def main():
                     line = line.strip()  # Remove blank space
                     line = line.replace("\n", "").split(":")
                     if line[1] not in ['x', '*', '!']:
-                        user = line[0].strip()
-                        hashedPass = line[1].strip()
-                        hashType = hashedPass.split("$")[1]
-                        salt = hashedPass.split("$")[2]
-                        insalt = "$" + hashType + "$" + salt + "$"
-                        hash = crypt.crypt(password, insalt)
-            if userFound is True and hash == hashedPass:  # Alert if user does not exist
+                        user = line[0].strip()                      # Get the name of user
+                        hashedPass = line[1].strip()                # Get the value of the hashed Pass
+                        hashType = hashedPass.split("$")[1]         # Get the hash type
+                        salt = hashedPass.split("$")[2]             # Get the value of salt
+                        insalt = "$" + hashType + "$" + salt + "$"  # Combine hash type and salt
+                        hash = crypt.crypt(password, insalt)        # Get the hash of password with salt prepended
+            if userFound is True and hash == hashedPass:  #
                 print("Welcome '{}'!".format(user))
                 break
             else:

@@ -27,6 +27,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration name="login" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -66,7 +67,10 @@
       <option name="presentableId" value="Default" />
       <updated>1615681712278</updated>
       <workItem from="1615681730485" duration="3022000" />
-      <workItem from="1615814108759" duration="3602000" />
+      <workItem from="1615814108759" duration="4215000" />
+      <workItem from="1615826630741" duration="1034000" />
+      <workItem from="1615914617856" duration="64000" />
+      <workItem from="1616170823213" duration="1038000" />
     </task>
     <servers />
   </component>
